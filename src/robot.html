@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rockman</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./robot.css">
+  </head>
+  </head>
+  <body>
+    <h1>Rockman</h1>
+    <div class="pure-g">
+        <div class="pure-u-1-5">
+            <p>Command List</p>
+            <pre><code id="message" class="message">
+1. Place X,Y,F 
+e.g. 
+Place 1,4,north
+place 2,3,e
+2. Move
+3. Report
+            </code></pre>
+            <form class="pure-form">
+                <p>Type Your Command Here <br>& press Enter</p>
+                <p><input id="goCommand" value=""></p>
+                or
+                <div>
+                    <p>
+                        X: <select id="placeX" title="x coordinate. Offset starts at 0 - from left to right"></select>    
+                        Y: <select id="placeY" title="y coordinate. Offsets starts at 0 - from bottom to top"></select>
+                        F: <select id="placeF" title="face/direction - north, east, south, west"></select>  
+                    </p>
+                    <p>
+                        <button id="goPlace" class="pure-button pure-button-primary" title="Place Rockman on the board">Place</button>
+                        <button id="goMove" class="disable pure-button pure-button-primary" title="Move Rockman on the board">Move</button>
+                        <button id="goReport" class="disable pure-button pure-button-primary" title="Display Rockman's position on the board">Report</button>   
+                    </p>    
+                    <p>
+                        <button id="goRotateL" class="disable pure-button pure-button-primary" title="rotate 90&deg; counter clockwise">&lt;</button>
+                        <button id="goRotateR" class="disable pure-button pure-button-primary" title="rotate 90&deg; counter clockwise">&gt;</button>
+                    </p>      
+                </div>
+            </form>
+            <p>Report</p>
+            <code id="reporter" class="message" style="white-space: pre;">Message Goes Here</code>
+
+        </div>
+        <div class="pure-u-4-5">
+            <table id="robotTable" class="pure-table pure-table-bordered" width="auto">
+            </table>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var config = {
+            debug: true,
+            maxX: 7,
+            maxY: 8,
+            images: {
+                north: 'images/north.jpg',
+                east: 'images/east.jpg',
+                south: 'images/south.jpg',
+                west: 'images/west.jpg'
+            },
+            selectors: {
+                tableId: '#robotTable',
+                messageId: '#reporter',
+                disableClass: '.disable'
+            },
+            form: {
+                placeX: '#placeX',
+                placeY: '#placeY',
+                placeF: '#placeF',
+                goPlace: '#goPlace',
+                goMove: '#goMove',
+                goReport: '#goReport',
+                goRotateL: '#goRotateL',
+                goRotateR: '#goRotateR',
+                goCommand: '#goCommand'
+            },    
+            misc: {
+                clearCommandAfterExec: true
+            },
+            defaultFace: 'N',
+            faces: ['north', 'east', 'south', 'west']
+        }
+    </script>
+	<script type="text/javascript" src="./robot.js"></script>
+  </body>
+</html>
