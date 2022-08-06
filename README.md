@@ -1,2 +1,1 @@
-# robot
-Simple board game
+# Toy Robot
