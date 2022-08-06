@@ -17,6 +17,7 @@ $(function() {
      * initialize
      */
     init(config);
+    $(config.form.goCommand).focus();
 
     function init(config) {
         // disable some buttons
