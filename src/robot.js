@@ -246,6 +246,16 @@ $(function() {
                 goReport();
                 success++;
                 break;
+            case 'left':
+                if (currentLocation.x === -1) break;
+                goRotateL();
+                success++;
+                break;
+            case 'right':
+                if (currentLocation.x === -1) break;
+                goRotateR();
+                success++;
+                break;
             default:
                 // place goes here
                 if (command.indexOf('place') === 0) {
