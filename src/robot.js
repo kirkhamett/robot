@@ -46,8 +46,8 @@ $(function() {
         // set placeY to 0
         $(config.form.placeY).val(0);
 
-        // populate faces/direction dropdown
-        $.each(config.faces, function (i, item) {
+        // populate direction dropdown
+        $.each(config.directions, function (i, item) {
             $(config.form.placeF).append($('<option>', { 
                 value: item,
                 text : item
@@ -69,7 +69,7 @@ $(function() {
         if (f === 'e') f = 'east';
         if (f === 's') f = 'south';
         if (f === 'w') f = 'west';
-        if (config.faces.indexOf(f) < 0) {
+        if (config.directions.indexOf(f) < 0) {
             goReport('Invalid face/position.');
             return;
         }
@@ -151,11 +151,11 @@ $(function() {
             goReport('Place Rockman on the board first before issuing this command.');
             return;
         }
-        var index = config.faces.indexOf(currentLocation.f); 
-        if (index === 0) index = config.faces.length - 1;
+        var index = config.directions.indexOf(currentLocation.f); 
+        if (index === 0) index = config.directions.length - 1;
         else index--;
-        $(config.selectors.tableId + ' > tr > td.selected').html(getImage(config.images[config.faces[index]]));
-        currentLocation.f = config.faces[index];
+        $(config.selectors.tableId + ' > tr > td.selected').html(getImage(config.images[config.directions[index]]));
+        currentLocation.f = config.directions[index];
         goReport();
     }
 
@@ -168,11 +168,11 @@ $(function() {
             goReport('Place Rockman on the board first before issuing this command.');
             return;
         }
-        var index = config.faces.indexOf(currentLocation.f); 
-        if (index === config.faces.length - 1) index = 0;
+        var index = config.directions.indexOf(currentLocation.f); 
+        if (index === config.directions.length - 1) index = 0;
         else index++;
-        $(config.selectors.tableId + ' > tr > td.selected').html(getImage(config.images[config.faces[index]]));
-        currentLocation.f = config.faces[index];
+        $(config.selectors.tableId + ' > tr > td.selected').html(getImage(config.images[config.directions[index]]));
+        currentLocation.f = config.directions[index];
         goReport();
     }
 

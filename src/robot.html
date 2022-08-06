@@ -56,21 +56,21 @@ place 2,3,e
     <!-- <script src="./jquery-3.6.0.min.js"></script> -->
     <script type="text/javascript">
         var config = {
-            debug: true,
-            maxX: 7,
-            maxY: 8,
-            images: {
-                north: 'images/north.jpg',
+            debug: true,                        // flag to enable/disable debug
+            maxX: 7,                            // number of board columns
+            maxY: 8,                            // number of board rows
+            images: {                           // robot images
+                north: 'images/north.jpg',      
                 east: 'images/east.jpg',
                 south: 'images/south.jpg',
                 west: 'images/west.jpg'
             },
-            selectors: {
+            selectors: {                        // html element selectors (ids and classes)
                 tableId: '#robotTable',
                 messageId: '#reporter',
                 disableClass: '.disable'
             },
-            form: {
+            form: {                             // form element selectors (ids)
                 placeX: '#placeX',
                 placeY: '#placeY',
                 placeF: '#placeF',
@@ -82,10 +82,10 @@ place 2,3,e
                 goCommand: '#goCommand'
             },    
             misc: {
-                clearCommandAfterExec: true
+                clearCommandAfterExec: true     // flag to clear textbox value. If true and command is successful, text box will be cleared
             },
-            defaultFace: 'N',
-            faces: ['north', 'east', 'south', 'west']
+            defaultFace: 'N',                   // currently not used
+            directions: ['north', 'east', 'south', 'west']      // valid directions
         }
     </script>
 	<script type="text/javascript" src="./robot.js"></script>
