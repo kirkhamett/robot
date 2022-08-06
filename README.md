@@ -4,6 +4,7 @@
 1. Download this git repo
 2. Go to src/ folder and open robot.html on your browser
 3. You should see the robot app
+4. Use the text box to issue commands. Alternatively, you can use the buttons.
 
 # Configuration
 1. Open src/robot.html on a text editor or IDE
