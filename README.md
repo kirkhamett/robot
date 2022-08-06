@@ -16,3 +16,6 @@
 3. accessibility not set
 4. no unit testing (no UI framework)
 5. not tested on mobile, other browsers (only Chrome)
+
+# Misc
+1. added keyboard shortcuts (left & right arrows [rotate], spacebar [move])
