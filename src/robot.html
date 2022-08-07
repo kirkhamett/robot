@@ -10,18 +10,10 @@
   </head>
   </head>
   <body>
-    <h1>Rockman</h1>
+    <h3>Rockman</h3>
     <div class="pure-g">
         <div class="pure-u-1-5">
-            <p>Command List</p>
-            <pre><code id="message" class="message">
-1. Place X,Y,F 
-e.g. 
-Place 1,4,north
-place 2,3,e
-2. Move
-3. Report
-            </code></pre>
+            
             <form class="pure-form">
                 <p>Type Your Command Here <br>& press Enter</p>
                 <p><input id="goCommand" value="" tabindex="0"></p>
@@ -43,9 +35,18 @@ place 2,3,e
                     </p>      
                 </div>
             </form>
+            <hr>
             <p>Report</p>
-            <code id="reporter" class="message" style="white-space: pre;">Message Goes Here</code>
-
+            <code id="reporter" class="message" style="">Message Goes Here</code>
+            <hr>
+            <p>Command List</p>
+            <pre><code id="message" class="message">
+1. Place X,Y,F 
+e.g. 
+Place 1,4,north or place 2,3,e
+2. Move
+3. Report
+            </code></pre>
         </div>
         <div class="pure-u-4-5">
             <table id="robotTable" class="pure-table pure-table-bordered" width="auto">

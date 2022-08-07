@@ -1,3 +1,11 @@
+body {
+}
+
+pre {
+    margin: 2px;
+    padding: 2px;
+}
+
 .cell {
     height: 50px;
     width: 50px;
@@ -6,3 +14,8 @@
 .img {
     width: 45px;
 }
+
+#message {
+    font-size: 10px;
+}
+

@@ -119,7 +119,7 @@ $(function() {
         var message = '';
         if (msg) message = msg;
         else message = currentLocation.x + ', ' + currentLocation.y + ', ' + currentLocation.f;
-        $(config.selectors.messageId).html(message);
+        $(config.selectors.messageId).html(message).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
     }
 
     /**
