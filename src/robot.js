@@ -7,21 +7,33 @@
  * @todo not tested on mobile, other browsers (only Chrome)
  */
 $(function() {
+    /**
+     * x,y coordinates start from the southwest
+     * x - x coordinate
+     * y - y coordinate
+     * f - face/direction - north, east, south, west. default to x (to denote that it's not set)
+     */
     var currentLocation = {
-        x: -1,
+        x: -1,  
         y: -1,
         f: 'x'
     };
 
     /**
-     * initialize
+     * initialize 
      */
     init(config);
-    $(config.form.goCommand).focus();
-
+    
+    /**
+     * initialize the board and other misc settings
+     * config (object) - json formatted object of settings
+     */
     function init(config) {
         // disable some buttons
         disable();
+        
+        // set focus to the command textbox
+        $(config.form.goCommand).focus();
 
         // create board and dropdown options
         var td = '',
@@ -60,28 +72,32 @@ $(function() {
      * place the robot 
      * @param x - x coordinate
      * @param y - y coordinate
-     * @param f - face/direction (north...)
+     * @param f - face/direction (north, east, south, west)
      */
     function goPlace(x, y, f) {
         // check if f is a valid input
         if (config.debug) console.log('goPlace', x, y, f, config.maxX, config.maxY);
+        
         // shortcuts
         if (f === 'n') f = 'north';
         if (f === 'e') f = 'east';
         if (f === 's') f = 'south';
         if (f === 'w') f = 'west';
+        
         if (config.directions.indexOf(f) < 0) {
             goReport('Invalid face/position.');
             return;
         }
 
         clearBoard();
+        
         var image = getImage(config.images[f]);
         if (config.debug) console.log(image);
         x = parseInt(x);
         y = parseInt(y);
         $(config.selectors.tableId + ' > tr').eq(config.maxY - (y + 1)).find('td').eq(x).html(image);
         $(config.selectors.tableId + ' > tr').eq(config.maxY - (y + 1)).find('td').eq(x).addClass('selected');
+        
         currentLocation.x = x;
         currentLocation.y = y;
         currentLocation.f = f;
@@ -137,7 +153,8 @@ $(function() {
     }
 
     /**
-     * generate
+     * generate image 
+     * @param img (string) image file path
      */
     function getImage (img) {
         return '<img class="img" src="' + img + '"></img>';
@@ -231,7 +248,10 @@ $(function() {
         }
     }
 
-    // execute typed command if valid
+    /**
+     * execute typed command if valid
+     * @param command (string) the command to execute
+     */
     function goCommand(command) {
         command = jQuery.trim(command.toLowerCase());
         var success = 0;
@@ -319,6 +339,7 @@ $(function() {
                 break;
             case 32:
                 // spacebar
+                // @todo exclude keystrokes when focus is on command (textbox)
                 goMove();
                 break;
         }
